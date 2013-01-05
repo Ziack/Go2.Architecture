@@ -91,8 +91,6 @@
     <Compile Include="DesignByContract\InvariantException.cs" />
     <Compile Include="DesignByContract\PostconditionException.cs" />
     <Compile Include="DesignByContract\PreconditionException.cs" />
-    <Compile Include="Events\DomainEvents.cs" />
-    <Compile Include="Events\IDomainEvent.cs" />
     <Compile Include="DomainModel\BaseObject.cs" />
     <Compile Include="DesignByContract\AssertionException.cs" />
     <Compile Include="DomainModel\BaseObjectEqualityComparer.cs" />
@@ -103,7 +101,6 @@
     <Compile Include="DomainModel\IHasAssignedId.cs" />
     <Compile Include="DomainModel\ValidatableObject.cs" />
     <Compile Include="DomainModel\ValueObject.cs" />
-    <Compile Include="Events\IHandles.cs" />
     <Compile Include="FileCache.cs" />
     <Compile Include="PersistenceSupport\IDbContext.cs" />
     <Compile Include="PersistenceSupport\ILinqRepository.cs" />

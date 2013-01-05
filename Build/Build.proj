@@ -33,6 +33,7 @@
 
     <PackageFiles Include="$(SolutionsPath)\Go2.Architecture.Domain\bin\Release\Go2.Architecture.Domain.dll;
                          $(SolutionsPath)\Go2.Architecture.WcfClient.Castle\bin\Release\Go2.Architecture.WcfClient.Castle.dll;
+						 $(SolutionsPath)\Go2.Architecture.Events\bin\Release\Go2.Architecture.Events.dll;
                          $(SolutionsPath)\Go2.Architecture.NHibernate\bin\Release\Go2.Architecture.NHibernate.dll;
                          $(SolutionsPath)\Go2.Architecture.RavenDb\bin\Release\Go2.Architecture.RavenDb.dll;
                          $(SolutionsPath)\Go2.Architecture.Wcf\bin\Release\Go2.Architecture.Wcf.dll;
@@ -56,6 +57,12 @@
 						   $(SolutionsPath)\Go2.Architecture.NHibernate\bin\Release\Go2.Architecture.NHibernate.pdb;">
       <PackageName>Go2.Architecture.NHibernate</PackageName>
 	  <NuspecFile>Go2.Architecture.NHibernate.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionsPath)\Go2.Architecture.Events\bin\Release\Go2.Architecture.Events.dll;
+						   $(SolutionsPath)\Go2.Architecture.Events\bin\Release\Go2.Architecture.Events.pdb;">
+      <PackageName>Go2.Architecture.Events</PackageName>
+	  <NuspecFile>Go2.Architecture.Events.nuspec</NuspecFile>
     </NugetPackage>
 	
 	<NugetPackage Include="$(SolutionsPath)\Go2.Architecture.RavenDB\bin\Release\Go2.Architecture.RavenDB.dll;
@@ -83,8 +90,8 @@
     </NugetPackage>
 	
 	<NugetPackage Include="$(SolutionRoot)\License.txt;">
-      <PackageName>sharp-architecture</PackageName>
-	  <NuspecFile>sharp-architecture.nuspec</NuspecFile>
+      <PackageName>Go2.Architecture</PackageName>
+	  <NuspecFile>Go2.Architecture.nuspec</NuspecFile>
     </NugetPackage>
 	
 	<NugetPackage Include="$(SolutionRoot)\License.txt;">

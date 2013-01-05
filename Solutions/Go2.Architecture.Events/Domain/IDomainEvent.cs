@@ -1,4 +1,4 @@
-﻿namespace Go2.Architecture.Domain.Events
+﻿namespace Go2.Architecture.Events.Domain
 {
     public interface IDomainEvent
     {

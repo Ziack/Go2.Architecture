@@ -1,20 +1,19 @@
-﻿namespace Go2.Architecture.Domain.Events
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Practices.ServiceLocation;
+
+namespace Go2.Architecture.Events.Domain
 {
-    using System;
-    using System.Collections.Generic;
-
-    using Microsoft.Practices.ServiceLocation;
-
     public class DomainEvents
 	{
         [ThreadStatic]
-        private static List<Delegate> actions;
+        private static List<Delegate> _actions;
 
         public static IServiceLocator ServiceLocator { get; set; }
 
         public static void ClearCallbacks()
         {
-            actions = null;
+            _actions = null;
         }
 
         public static void Raise<T>(T args) where T : IDomainEvent
@@ -27,9 +26,9 @@
                 }
             }
 
-            if (actions != null)
+            if (_actions != null)
             {
-                foreach (var action in actions)
+                foreach (var action in _actions)
                 {
                     if (action is Action<T>)
                     {
@@ -41,11 +40,11 @@
 
         public static void Register<T>(Action<T> callback) where T : IDomainEvent
         {
-            if (actions == null)
+            if (_actions == null)
             {
-                actions = new List<Delegate>();
+                _actions = new List<Delegate>();
             }
-            actions.Add(callback);
+            _actions.Add(callback);
         }
     }
 }
