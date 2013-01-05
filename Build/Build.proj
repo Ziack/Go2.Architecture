@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="PackageArtefacts" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <VersionMajor>2</VersionMajor>
+	<VersionMinor>1</VersionMinor>
+	<VersionPatch>1</VersionPatch>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RunMSpecTests>False</RunMSpecTests>
+	<MSpecRunner>mspec-clr4.exe</MSpecRunner>
+    <MSpecSpecificationAssemblies>"$(MSBuildProjectDirectory)\..\Solutions\Go2.Architecture.Specifications\Bin\Release\Go2.Architecture.Specifications.dll"</MSpecSpecificationAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssembliesToTestWithNUnit Include="$(SolutionsPath)\Go2.Architecture.Tests\bin\Release\Go2.Architecture.Tests.dll;" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageFiles Include="$(SolutionsPath)\**\*.*"
+                       Exclude="$(SolutionsPath)\**\bin\**;
+                                  $(SolutionsPath)\**\Logs\**;
+                                  $(SolutionsPath)\**\obj\**;
+                                  $(SolutionsPath)\**\*.suo;
+                                  $(SolutionsPath)\**\*.cache;
+                                  $(SolutionsPath)\**\_ReSharper*\**;
+                                  $(SolutionsPath)\**\*ReSharper*">
+      <PackageName>$(DropsPath)\$(SemanticVersion)\$(PackageName).Source.v$(SemanticVersion).zip</PackageName>
+      <WorkingDirectory>$(SolutionsPath)</WorkingDirectory>
+      <Flatten>False</Flatten>
+    </PackageFiles>
+
+    <PackageFiles Include="$(SolutionsPath)\Go2.Architecture.Domain\bin\Release\Go2.Architecture.Domain.dll;
+                         $(SolutionsPath)\Go2.Architecture.WcfClient.Castle\bin\Release\Go2.Architecture.WcfClient.Castle.dll;
+                         $(SolutionsPath)\Go2.Architecture.NHibernate\bin\Release\Go2.Architecture.NHibernate.dll;
+                         $(SolutionsPath)\Go2.Architecture.RavenDb\bin\Release\Go2.Architecture.RavenDb.dll;
+                         $(SolutionsPath)\Go2.Architecture.Wcf\bin\Release\Go2.Architecture.Wcf.dll;
+                         $(SolutionsPath)\Go2.Architecture.Web.Mvc\bin\Release\Go2.Architecture.Web.Mvc.dll;
+                         $(SolutionsPath)\Go2.Architecture.Testing.NUnit\bin\Release\Go2.Architecture.Testing.NUnit.dll;">
+      <PackageName>$(DropsPath)\$(SemanticVersion)\$(PackageName).dlls.v$(SemanticVersion).zip</PackageName>
+      <WorkingDirectory>$(SolutionsPath)</WorkingDirectory>
+      <Flatten>True</Flatten>
+    </PackageFiles>
+  </ItemGroup>
+  
+  
+  <ItemGroup>
+    <NugetPackage Include="$(SolutionsPath)\Go2.Architecture.Domain\bin\Release\Go2.Architecture.Domain.dll;
+						   $(SolutionsPath)\Go2.Architecture.Domain\bin\Release\Go2.Architecture.Domain.pdb;">
+      <PackageName>Go2.Architecture.Domain</PackageName>
+	  <NuspecFile>Go2.Architecture.Domain.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionsPath)\Go2.Architecture.NHibernate\bin\Release\Go2.Architecture.NHibernate.dll;
+						   $(SolutionsPath)\Go2.Architecture.NHibernate\bin\Release\Go2.Architecture.NHibernate.pdb;">
+      <PackageName>Go2.Architecture.NHibernate</PackageName>
+	  <NuspecFile>Go2.Architecture.NHibernate.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionsPath)\Go2.Architecture.RavenDB\bin\Release\Go2.Architecture.RavenDB.dll;
+						   $(SolutionsPath)\Go2.Architecture.RavenDB\bin\Release\Go2.Architecture.RavenDB.pdb;">
+      <PackageName>Go2.Architecture.RavenDB</PackageName>
+	  <NuspecFile>Go2.Architecture.RavenDB.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionsPath)\Go2.Architecture.Web.Mvc\bin\Release\Go2.Architecture.Web.Mvc.dll;
+						   $(SolutionsPath)\Go2.Architecture.Web.Mvc\bin\Release\Go2.Architecture.Web.Mvc.pdb;">
+      <PackageName>Go2.Architecture.Web.Mvc.Castle</PackageName>
+	  <NuspecFile>Go2.Architecture.Web.Mvc.Castle.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionsPath)\Go2.Architecture.Wcf\bin\Release\Go2.Architecture.Wcf.dll;
+						   $(SolutionsPath)\Go2.Architecture.Wcf\bin\Release\Go2.Architecture.Wcf.pdb;">
+      <PackageName>Go2.Architecture.Wcf</PackageName>
+	  <NuspecFile>Go2.Architecture.Wcf.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionsPath)\Go2.Architecture.Testing.NUnit\bin\Release\Go2.Architecture.Testing.NUnit.dll;
+						   $(SolutionsPath)\Go2.Architecture.Testing.NUnit\bin\Release\Go2.Architecture.Testing.NUnit.pdb;">
+      <PackageName>Go2.Architecture.Testing.NUnit</PackageName>
+	  <NuspecFile>Go2.Architecture.Testing.NUnit.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionRoot)\License.txt;">
+      <PackageName>sharp-architecture</PackageName>
+	  <NuspecFile>sharp-architecture.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionRoot)\License.txt;">
+      <PackageName>Go2.Architecture.Web.RavenDB</PackageName>
+	  <NuspecFile>Go2.Architecture.Web.RavenDB.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionRoot)\License.txt;">
+      <PackageName>Go2.Architecture.Wcf.NHibernate</PackageName>
+	  <NuspecFile>Go2.Architecture.Wcf.NHibernate.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionRoot)\License.txt;">
+      <PackageName>Go2.Architecture.Wcf.RavenDB</PackageName>
+	  <NuspecFile>Go2.Architecture.Wcf.RavenDB.nuspec</NuspecFile>
+    </NugetPackage>
+	
+	<NugetPackage Include="$(SolutionsPath)\Go2.Architecture.WcfClient.Castle\bin\Release\Go2.Architecture.WcfClient.Castle.dll;
+						   $(SolutionsPath)\Go2.Architecture.WcfClient.Castle\bin\Release\Go2.Architecture.WcfClient.Castle.pdb;">
+      <PackageName>Go2.Architecture.WcfClient.Castle</PackageName>
+	  <NuspecFile>Go2.Architecture.WcfClient.Castle.nuspec</NuspecFile>
+    </NugetPackage>
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <SolutionName>Go2.Architecture</SolutionName>
+    <SolutionsPath>$(MSBuildProjectDirectory)\..\Solutions</SolutionsPath>
+    <BuildPath>$(MSBuildProjectDirectory)\..\BuildSystem</BuildPath>
+  </PropertyGroup>
+
+  <Import Project="$(BuildPath)\BuildSystem.proj" />
+
+  <Target Name="Build"
+        DependsOnTargets="CleanSolution;
+                            UpdateAssemblyVersion;
+                            BuildSolutions;" />
+
+  <Target Name="RunTests"
+          DependsOnTargets="Build;
+                            RunNUnitTests;" />
+							
+  <Target Name="RunSpecs"
+      DependsOnTargets="RunMSpecSpecifications;" />
+
+  
+  <Target Name="PackageArtefacts"
+          DependsOnTargets="Build;
+						    RunTests;
+	              			RunSpecs;		  
+                            Package;
+							PackageNuget;
+                            BuildSuccess" />
+
+</Project>

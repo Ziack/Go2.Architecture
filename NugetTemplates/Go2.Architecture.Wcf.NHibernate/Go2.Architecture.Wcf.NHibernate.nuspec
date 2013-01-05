@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Go2.Architecture.Wcf.NHibernate</id>
+    <version></version>
+    <authors>Go2 Architecture Dev Team</authors>
+    <owners>Go2 Architecture Dev Team</owners>
+    <licenseUrl>https://github.com/Ziack/Go2.Architecture/blob/master/License.txt</licenseUrl>
+	<iconUrl>https://github.com/Ziack/Go2.Architecture/raw/master/Artefacts/Documentation/Logo_100x100.png</iconUrl>
+    <projectUrl>http://opensource.go2.com.co/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds Go2.Architecture.NHibernate persistance support to a WCF project.</description>
+    <summary>Architectural foundation for building maintainable applications with Domain Driven Design patterns and practices</summary>
+    <language>en-US</language>
+    <dependencies>
+	  <dependency id="Go2.Architecture.Domain" version="(1.9.6,3.0.0)" />
+	  <dependency id="Go2.Architecture.NHibernate" version="(1.9.6,3.0.0)" />
+	  <dependency id="Go2.Architecture.Wcf" version="(1.9.6,3.0.0)" />
+    </dependencies>
+  </metadata>
+</package>
